@@ -51,6 +51,7 @@ body{
     color: #ffffff;
     text-transform: uppercase;
     backface-visibility: hidden; /*when using animations, sometimes some weird things happen, like moving upward. to avoid that use backface-visibilty as hidden.*/
+    margin-bottom:60px;
 }
 .heading-primary-main{
     display: block;
@@ -77,6 +78,7 @@ body{
     top: 40%;
     left: 50%;
     transform: translate(-50%,-50%); /*will move half of the width of the box, will move it to left side, similary move up half of height*/
+    text-align: center; /*helps align the button, which is a block element, in the center */
 }
 @keyframes moveInLeft{
     0%{
@@ -103,4 +105,61 @@ body{
         opacity: 1;
         transform: translate(0); /*so that it looks exactly how it is without animation*/
     }
+}
+
+@keyframes moveInBottom{
+    0%{
+        opacity: 0;
+        transform: translate7(30px);
+    }
+    100%{
+        opacity: 1;
+        transform: translate(0); /*so that it looks exactly how it is without animation*/
+    }
+}
+
+/*button before and after we click on it should appear the same*/
+.btn:link, .btn:visited{
+text-transform: uppercase;
+text-decoration: none;
+border-radius: 100px;
+transition: all 0.2s; /*we place transition in the initial class, and we say on all pseudo elements transitions can happen*/
+position:relative;
+}
+.btn:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,.2);
+}
+.btn-active{
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0,0,0,.2);
+}
+.btn-white{
+    background-color: white;
+    color:#777;
+    padding: 15px 40px;
+    display: inline-block;
+}
+.btn::after{
+    content: ""; 
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top:0;
+    left:0;
+    z-index: -1;
+    transition: all .4s;
+}
+.btn-white::after{
+    background-color: white;
+}
+.btn:hover::after{
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+.btn-animated{
+    animation: moveInBottom .5s ease-out .75s;
+    animation-fill-mode: backwards; /*0% styles will be applied at the start, useful for when you dont want an element to appear when you reload*/
 }
