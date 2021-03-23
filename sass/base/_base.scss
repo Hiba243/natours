@@ -1,0 +1,16 @@
+/*reset browser's default styling*/
+*,
+*::after,
+*::before{
+    margin:0;
+    padding:0;
+    box-sizing: inherit; /*to make box sizing as an inheritable property*/
+}
+
+html{
+    font-size: 62.5%; /*1 rem=10px, 62.5%of root font size 16px=10px*/
+}
+
+body{
+    box-sizing: border-box;
+}

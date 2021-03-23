@@ -1,0 +1,33 @@
+.header{
+    height: 95vh; /*landing page should be 95% of viewport height*/
+    background-image: linear-gradient(
+        to right bottom,
+        rgba($color-primary-light,0.8), 
+        rgba($color-primary-dark,0.8)),
+        url(../img/hero.jpg); 
+    background-size: cover; /*it always fit the background to the width of the viewport*/
+    background-position: top; /*so that image is always at the top of viewport, it will crop some part of bottom*/
+    clip-path:polygon(0 0 , 100% 0, 100% 75vh, 0 100% ); /*specify coordinates of resultant polygon in. specify coordinates in clockwise direction*/
+    position: relative;
+
+    &__logo-box{
+        position: absolute;
+        top:4rem;
+        left: 4rem;
+    }
+    
+    &__logo{
+        height: 3.5rem;
+    }
+    &__text-box{
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%,-50%); /*will move half of the width of the box, will move it to left side, similary move up half of height*/
+        text-align: center; /*helps align the button, which is a block element, in the center */
+    }
+}
+
+/* .logo:hover{
+    animation: moveInRight 1s ease-out; we can use animation not just on page load, but on hover also
+} */
