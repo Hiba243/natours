@@ -1,7 +1,7 @@
 
 .btn{
     /*button before and after we click on it should appear the same*/
-    &:link, &:visited{
+    &,&:link, &:visited{
         font-size: 1.6rem;
         text-transform: uppercase;
         text-decoration: none;
@@ -10,6 +10,11 @@
         border-radius: 10rem;
         transition: all 0.2s; /*we place transition in the initial class, and we say on all pseudo elements transitions can happen*/
         position:relative;/*because we want btn:after to have position absolute and we want it exactly behind the button, we have placed position relative here*/
+        
+        //change for button tag
+        border:none;
+        cursor: pointer;
+    
     }
     &:hover{
         transform: translateY(-3px);
@@ -19,13 +24,25 @@
             opacity: 0; /*for the fade-out effect*/
         }
     }
-    &-active{
+
+    &-active,&:focus{
+        outline: none;
         transform: translateY(-1px);
         box-shadow: 0 .5rem 1rem rgba($color-black,.2);  
     }
     &--white{
         background-color:$color-white;
         color:$color-grey-dark;
+        padding: 15px 40px;
+        display: inline-block; /*so that we can use text-align center of textbox to align the button to the center*/
+        
+        &::after{
+            background-color: $color-white;
+        }
+    }
+    &--green{
+        background-color:$color-primary;
+        color:$color-white;
         padding: 15px 40px;
         display: inline-block; /*so that we can use text-align center of textbox to align the button to the center*/
         
