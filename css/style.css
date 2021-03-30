@@ -89,11 +89,7 @@ body {
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
-  letter-spacing: .2rem;
-  transition: all .2s; }
-  .heading-secondary:hover {
-    transform: skewY(2deg) skewX(15deg) scale(1.1);
-    text-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, 0.2); }
+  letter-spacing: .2rem; }
 
 .heading-tertiary {
   font-size: 1.6rem;
@@ -289,7 +285,7 @@ body {
     border-top-left-radius: 3px;
     border-top-right-radius: 3px; }
     .card__picture--1 {
-      background-image: linear-gradient(to right bottom, #ffb900, #ff7730), url(../../img/nat-5.jpg); }
+      background-image: linear-gradient(to right bottom, #ffb900, #ff7730), url(../img/nat-5.jpg); }
   .card__heading {
     font-size: 2.8rem;
     font-weight: 300;
@@ -513,10 +509,14 @@ body {
     padding: 0 2rem; }
   .popup__img {
     display: block;
-    width: 100%; }
+    width: 100%;
+    opacity: 0; }
   .popup__text {
     font-size: 1.4rem;
     margin-bottom: 2rem;
+    opacity: 0;
+    width: 0;
+    visibility: hidden;
     -moz-column-count: 2;
     -moz-column-gap: 4rem;
     -moz-column-rule: 1px solid #f7f7f7;
@@ -527,12 +527,34 @@ body {
     -ms-hyphens: auto;
     -webkit-hyphens: auto;
     hyphens: auto; }
+  .popup__heading--1 {
+    opacity: 0;
+    visibility: hidden;
+    width: 0; }
+  .popup__heading--2 {
+    opacity: 0;
+    visibility: hidden;
+    width: 0; }
   .popup:target {
     opacity: 1;
     visibility: visible; }
   .popup:target .popup__content {
     opacity: 1;
     transform: translate(-50%, -50%) scale(1); }
+  .popup:target .popup__img {
+    opacity: 1; }
+  .popup:target .popup__text {
+    opacity: 1;
+    visibility: visible;
+    width: 100%; }
+  .popup:target .popup__heading--1 {
+    opacity: 1;
+    visibility: visible;
+    width: 100%; }
+  .popup:target .popup__heading--2 {
+    opacity: 1;
+    visibility: visible;
+    width: 100%; }
   .popup__close:link, .popup__close:visited {
     color: #777;
     position: absolute;
@@ -777,7 +799,7 @@ body {
   background-image: linear-gradient(to right bottom, #7ed56f, #28b485); }
 
 .book {
-  background-image: linear-gradient(105deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 50%, transparent 50%), url(../../img/nat-10.jpg);
+  background-image: linear-gradient(105deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 50%, transparent 50%), url(../img/nat-10.jpg);
   background-size: 100%;
   height: 52rem;
   border-radius: 3px;
