@@ -3,12 +3,27 @@
     margin: 0 auto; //use this to center block elements which are inside block elements 
     &:not(:last-child){
         margin-bottom: $gutter-vertical; 
+        @include respond(tab-port){
+            margin-bottom: $gutter-vertical-small;
+        }
     }
+    @include respond(tab-port){
+        max-width: 50rem;
+        padding: 0 3rem;
+    }
+     
     @include clearfix;
     [class*="col-"]{
         float: left;
         &:not(:last-child){
-            margin-right: $gutter-horizontal; 
+            margin-right: $gutter-horizontal;
+            @include respond(tab-port){
+                margin-right: 0;
+                margin-bottom: $gutter-vertical-small;
+            } 
+        }
+        @include respond(tab-port){
+            width: 100% !important;
         }
     }
     .col-1-of-2{

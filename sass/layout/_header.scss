@@ -9,7 +9,9 @@
     background-position: top; /*so that image is always at the top of viewport, it will crop some part of bottom*/
     clip-path:polygon(0 0 , 100% 0, 100% 75vh, 0 100% ); /*specify coordinates of resultant polygon in. specify coordinates in clockwise direction*/
     position: relative;
-
+    @include respond(phone){
+        clip-path:polygon(0 0 , 100% 0, 100% 85vh, 0 100% );
+    }
     &__logo-box{
         position: absolute;
         top:4rem;
@@ -21,7 +23,7 @@
     }
     &__text-box{
         position: absolute;
-        top: 40%;
+        top: 50%;
         left: 50%;
         transform: translate(-50%,-50%); /*will move half of the width of the box, will move it to left side, similary move up half of height*/
         text-align: center; /*helps align the button, which is a block element, in the center */
